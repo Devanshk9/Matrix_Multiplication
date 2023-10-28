@@ -1,0 +1,74 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+int main(){
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    #endif
+
+    int m1,n1;
+    int m2,n2;
+
+    // cout<<"Enter the order of first matrix:-"<<endl;
+    cin>>m1>>n1;
+    // cout<<"Enter the order of two matrix:-";
+    cin>>m2>>n2;
+
+    if(n1!=m2){
+        cout<<"Matrix Multiplication is not possible";
+    }
+    else{
+
+        int matrix1[m1][n1];
+        int matrix2[m2][n2];
+        int matrix_ans[m1][n2];
+
+        for (int i = 0; i < m1; ++i)
+        {
+            for (int j = 0; j < n1; ++j)
+            {
+                cin>>matrix1[i][j];
+            }
+        }
+        for (int i = 0; i < m2; ++i)
+        {
+            for (int j = 0; j < n2; ++j)
+            {
+                cin>>matrix2[i][j];
+            }
+        }
+        
+        for (int i = 0; i < m1; ++i) {
+            for (int j = 0; j < n2; ++j) {
+                matrix_ans[i][j] = 0;  
+                    for (int k = 0; k < n1; ++k) {
+                    matrix_ans[i][j] += matrix1[i][k] * matrix2[k][j];
+                    }
+                }
+            }
+        for (int i = 0; i < m1; ++i)
+        {
+            for (int j = 0; j < n2; ++j)
+            {
+                cout<<matrix_ans[i][j]<<" ";
+            }
+            cout<<endl;
+        }
+
+
+
+    }
+
+
+
+    
+
+ 
+    return 0;
+}
+
